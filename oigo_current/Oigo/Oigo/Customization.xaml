@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Oigo"
+             x:Class="Oigo.Customization">
+    <ContentPage.Content>
+        <StackLayout>
+            <RelativeLayout
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                Property=Height,Factor=0,Constant=0}"
+                RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
+                Property=Width,Factor=0,Constant=0}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                Property=Width,Factor=1,Constant=0}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                Property=Height,Factor=1,Constant=0}">
+                <Button Text="Back" Clicked="Cancel_Clicked" BackgroundColor="DarkSlateGray"
+                        TextColor="White"
+                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                       Property=Height,Factor=0.05,Constant=0}"
+                       RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
+                       Property=Width,Factor=0.05,Constant=0}"
+                       RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                       Property=Width,Factor=.35,Constant=0}"
+                       RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                       Property=Height,Factor=0.2,Constant=0}"></Button>
+
+                <Button Clicked="Button_Clicked"  Text="Add" BackgroundColor="DarkSlateGray"
+                        TextColor="White"
+                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                       Property=Height,Factor=0.05,Constant=0}"
+                       RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
+                       Property=Width,Factor=0.60,Constant=0}"
+                       RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                       Property=Width,Factor=.35,Constant=0}"
+                       RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                       Property=Height,Factor=0.2,Constant=0}"></Button>
+                
+                <Frame BackgroundColor="DarkSlateGray"
+                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                       Property=Height,Factor=0.3,Constant=0}"
+                       RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
+                       Property=Width,Factor=0.03,Constant=0}"
+                       RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                       Property=Width,Factor=.94,Constant=0}"
+                       RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                       Property=Height,Factor=0.65,Constant=0}">
+                    <ListView x:Name="listView" ItemsSource="{x:Static local:Customization.items}" ItemTapped="ItemSelected"  >
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <ViewCell.ContextActions>
+                                        <MenuItem Clicked="Delete_Clicked" IsDestructive="True" CommandParameter="{Binding .}" Text="Delete"></MenuItem>
+                                    </ViewCell.ContextActions>
+                                    <StackLayout Padding="15.0" BackgroundColor="White">
+                                        <Label Text="{Binding .}" TextColor="Black"></Label>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Frame>
+            </RelativeLayout>
+
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

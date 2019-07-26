@@ -1,0 +1,185 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Oigo.HelpMe">
+    <AbsoluteLayout x:Name="MP" BackgroundColor="BlueViolet">
+
+        <RelativeLayout>
+            <Image Source="Speech_App_Background.png" Aspect="AspectFill" 
+                   RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                       Property=Height,Factor=0.0,Constant=0}"
+                       RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
+                       Property=Width,Factor=0.0,Constant=0}"
+                       RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                       Property=Width,Factor=1,Constant=0}"
+                       RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                       Property=Height,Factor=1,Constant=0}"/>
+            <!--Back Button-->
+            <Button x:Name="BackButton" IsEnabled="True" Text="Back" FontAttributes="Bold" BackgroundColor="DarkSlateGray" TextColor="White" Clicked="Handle_Back" FontSize="18"
+                    RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                       Property=Height,Factor=0.02,Constant=0}"
+                       RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
+                       Property=Width,Factor=0.02,Constant=0}"
+                       RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                       Property=Width,Factor=0.15,Constant=0}"
+                       RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                       Property=Height,Factor=0.15,Constant=0}"></Button>
+            <RelativeLayout x:Name="border" BackgroundColor="DarkSlateGray" Padding="1,1,1,1"
+                            RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                       Property=Height,Factor=0.02,Constant=0}"
+                       RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
+                       Property=Width,Factor=0.2,Constant=0}"
+                       RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                       Property=Width,Factor=0.78,Constant=0}"
+                       RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                       Property=Height,Factor=0.15,Constant=0}">
+                <Frame OutlineColor="DarkGray" Padding="10" BackgroundColor="LightGray" x:Name="textBar"
+                       RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                       Property=Height,Factor=0.05,Constant=0}"
+                       RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
+                       Property=Width,Factor=0.01,Constant=0}"
+                       RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                       Property=Width,Factor=0.98,Constant=0}"
+                       RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                       Property=Height,Factor=0.9,Constant=0}">
+                    <AbsoluteLayout HeightRequest="55">
+                        <!--Oigo Logo-->
+                        <!-- Clicked="Handle_Tutorial"-->
+                        <Image x:Name="OigoLogo" Source="Oigo_logo.png" Aspect="AspectFill" AbsoluteLayout.LayoutBounds="1,0.5,0.15,1" AbsoluteLayout.LayoutFlags="All"/>
+                        <StackLayout AbsoluteLayout.LayoutBounds="1,0.5,0.3,1" AbsoluteLayout.LayoutFlags="All">
+                            <Button x:Name="TutorialButton"  BackgroundColor="Transparent"></Button>
+                        </StackLayout>
+                        <!--Phrase Preview Bar-->
+                        <Label x:Name="text" Text="I am sad because of what you said" />
+                    </AbsoluteLayout>
+                </Frame>
+            </RelativeLayout>
+            <Frame OutlineColor="Transparent" BorderColor="Transparent" HasShadow="True" Padding="5" BackgroundColor="BlueViolet"
+                       RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, 
+                       Property=Height,Factor=0.2,Constant=0}"
+                       RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
+                       Property=Width,Factor=0.05,Constant=0}"
+                       RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                       Property=Width,Factor=0.9,Constant=0}"
+                       RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                       Property=Height,Factor=0.55,Constant=0}">
+                <AbsoluteLayout x:Name="topFlex" IsEnabled="True"
+                       RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, 
+                       Property=Height,Factor=0,Constant=0}"
+                       RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
+                       Property=Width,Factor=0,Constant=0}"
+                       RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                       Property=Width,Factor=1,Constant=0}"
+                       RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                       Property=Height,Factor=1,Constant=0}">
+
+                </AbsoluteLayout>
+            </Frame>
+            <Button x:Name="ContactUs"  Text="Contact Us" FontSize="16" TextColor="White" IsEnabled="True" BackgroundColor="DarkSlateGray" Clicked="Contact_Us_Clicked" 
+                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                       Property=Height,Factor=0.8,Constant=0}"
+                       RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
+                       Property=Width,Factor=0.01,Constant=0}"
+                       RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                       Property=Width,Factor=.18,Constant=0}"
+                       RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                       Property=Height,Factor=0.18,Constant=0}"></Button>
+
+            <Button x:Name="CustomizeButton"  Text="Customize" FontSize="16" TextColor="White" IsEnabled="True" BackgroundColor="DarkSlateGray" Clicked="Customize_Clicked" 
+                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                       Property=Height,Factor=0.8,Constant=0}"
+                       RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
+                       Property=Width,Factor=0.21,Constant=0}"
+                       RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                       Property=Width,Factor=.18,Constant=0}"
+                       RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                       Property=Height,Factor=0.18,Constant=0}"></Button>
+
+            <Button x:Name="SelfButton" Text="Self" FontSize="16" IsEnabled="True"  BackgroundColor="DarkSlateGray" TextColor="White"  Clicked="Self_Clicked"
+                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                       Property=Height,Factor=0.8,Constant=0}"
+                       RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
+                       Property=Width,Factor=0.41,Constant=0}"
+                       RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                       Property=Width,Factor=.18,Constant=0}"
+                       RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                       Property=Height,Factor=0.18,Constant=0}"></Button>
+
+            <Button x:Name="HelpButton"  Text="Help Me" FontSize="16" IsEnabled="False"  TextColor="LightGray" BackgroundColor="DarkSlateGray"
+                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                       Property=Height,Factor=0.8,Constant=0}"
+                       RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
+                       Property=Width,Factor=0.61,Constant=0}"
+                       RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                       Property=Width,Factor=.18,Constant=0}"
+                       RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                       Property=Height,Factor=0.18,Constant=0}"></Button>
+
+            <Button x:Name="SpeakButton" Text="Speak" IsEnabled ="True" Clicked="Speak" FontSize="16" TextColor="White" BackgroundColor="DarkSlateGray" 
+                        RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+                       Property=Height,Factor=0.8,Constant=0}"
+                       RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
+                       Property=Width,Factor=0.81,Constant=0}"
+                       RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,
+                       Property=Width,Factor=.18,Constant=0}"
+                       RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,
+                       Property=Height,Factor=0.18,Constant=0}"></Button>
+        </RelativeLayout>
+
+
+        <!--Tutorial Window-->
+        <ContentView x:Name="tutorial" 
+                     BackgroundColor="#C0808080" 
+                     Padding="10, 0" 
+                     IsVisible="False"
+                     InputTransparent="False"
+                     AbsoluteLayout.LayoutBounds="0, 0, 1, 1" 
+                     AbsoluteLayout.LayoutFlags="All">
+            <StackLayout x:Name="Tutorial_Window" 
+                     AbsoluteLayout.LayoutBounds="0, 0, 1, 1" 
+                     AbsoluteLayout.LayoutFlags="All">
+                <StackLayout x:Name="Tutorial_Title"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            Orientation="Vertical" 
+                            HeightRequest="100" 
+                            WidthRequest="500" 
+                            BackgroundColor="White"
+                            Margin="25">
+                </StackLayout>
+                <StackLayout x:Name="Tutorial_Box"
+                      HorizontalOptions="Center"
+                      VerticalOptions="Center"
+                      Orientation="Horizontal" 
+                      HeightRequest="200" 
+                      WidthRequest="208" 
+                      BackgroundColor="DarkGray">
+                </StackLayout>
+            </StackLayout>
+        </ContentView>
+
+        <ContentView x:Name="contact" 
+                     BackgroundColor="#C0808080" 
+                     Padding="10, 0" 
+                     IsVisible="False"
+                     InputTransparent="False"
+                     AbsoluteLayout.LayoutBounds="0, 0, 1, 1" 
+                     AbsoluteLayout.LayoutFlags="All">
+            <StackLayout x:Name="Contact_Window" 
+                     AbsoluteLayout.LayoutBounds="0, 0, 1, 1" 
+                     AbsoluteLayout.LayoutFlags="All">
+                <StackLayout x:Name="Contact_Title"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            Orientation="Vertical" 
+                            HeightRequest="200" 
+                            WidthRequest="500" 
+                            BackgroundColor="DarkGray"
+                            Margin="25">
+                </StackLayout>
+
+            </StackLayout>
+        </ContentView>
+        
+    </AbsoluteLayout>
+</ContentPage>
